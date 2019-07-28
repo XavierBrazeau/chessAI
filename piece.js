@@ -22,9 +22,7 @@ class Piece {
             text(this.letter, this.piecePosition.x, this.piecePosition.y)
     }
     
-    /* clicked(mouseX, mouseY){
-        if(mouseX)
-    } */
+    
 
     move(){
 

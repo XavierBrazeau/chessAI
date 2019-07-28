@@ -1,16 +1,20 @@
 var tileSize = 100
-var test
+var board
 function setup(){
     createCanvas(800,800)
-    test = new Board()
+    board = new Board()
 }
 
 function draw(){
     background(100);
     showGrid();
-    test.show()
+    board.show()
 }
 
+function mouseIsPressed(){
+    board.mousePressed()
+}
+ 
 function showGrid(){
     for(var i = 0; i < 8; i++){
         for(var j = 0; j < 8; j++){

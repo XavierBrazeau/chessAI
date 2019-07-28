@@ -58,4 +58,14 @@ class Board {
         }
     }
 
+    /* clicked(){
+        this.whitePieces.forEach(p => {
+          p.clicked()
+        })
+
+        this.blackPieces.forEach(p => {
+            p.clicked()
+          })
+    } */
+
 }
