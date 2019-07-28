@@ -2,6 +2,7 @@ class Board {
     constructor() {
       this.whitePieces = []
       this.blackPieces = []
+      this.boardArray = Array.from(Array(8),() => new Array(8));
       this.score = 0
       this.setupPieces()
   
@@ -44,8 +45,15 @@ class Board {
         this.blackPieces.push(new Pawn(1, 1, false));
         this.blackPieces.push(new Pawn(0, 1, false));
         this.blackPieces.push(new Pawn(6, 1, false));
-        this.blackPieces.push(new Pawn(7, 1, false)); 
-    
+        this.blackPieces.push(new Pawn(7, 1, false));
+
+        this.whitePieces.forEach(p => {
+          this.boardArray[p.matrixPosition.x][p.matrixPosition.y] = p
+        })
+
+        this.blackPieces.forEach(p => {
+            this.boardArray[p.matrixPosition.x][p.matrixPosition.y] = p
+          })
       
     }
 
@@ -58,14 +66,25 @@ class Board {
         }
     }
 
-    /* clicked(){
-        this.whitePieces.forEach(p => {
-          p.clicked()
-        })
+    takePiece(){
+        return this.boardArray[(mouseX - mouseX % 100)/100][(mouseY - mouseY % 100)/100]
+    }
 
-        this.blackPieces.forEach(p => {
-            p.clicked()
-          })
-    } */
+    clicked(piece){
+        if(piece == null){
+            return
+        }
+
+        while(mouseIsPressed){
+
+        }
+        var positionX = (mouseX - mouseX % 100)/100
+        var positionY = (mouseY - mouseY % 100)/100
+        this.boardArray[piece.matrixPosition.x][piece.matrixPosition.y] = null
+        this.boardArray[positionX][positionY] = piece
+        piece.matrixPosition.x = positionX
+        piece.matrixPosition.y = positionY
+        
+    }
 
 }

@@ -11,8 +11,9 @@ function draw(){
     board.show()
 }
 
-function mouseIsPressed(){
-    board.mousePressed()
+function mousePressed(){
+    
+    board.clicked(board.takePiece())
 }
  
 function showGrid(){
