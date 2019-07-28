@@ -10,7 +10,7 @@ class Piece {
 
     show(){
             textSize(30)
-            strokeWeight(10)
+            //strokeWeight(10)
             if(this.white){
                 fill(255)
                 stroke(0)
