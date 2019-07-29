@@ -10,42 +10,42 @@ class Board {
     }
   
     setupPieces() {
-        this.whitePieces.push(new King(4, 7, true));
-        this.whitePieces.push(new Queen(3, 7, true));
-        this.whitePieces.push(new Bishop(2, 7, true));
-        this.whitePieces.push(new Bishop(5, 7, true));
-        this.whitePieces.push(new Knight(1, 7, true));
-        this.whitePieces.push(new Rook(0, 7, true));
-        this.whitePieces.push(new Knight(6, 7, true));
-        this.whitePieces.push(new Rook(7, 7, true));
+        this.whitePieces.push(new King(4, 7, true, this.boardArray))
+        this.whitePieces.push(new Queen(3, 7, true, this.boardArray))
+        this.whitePieces.push(new Bishop(2, 7, true, this.boardArray))
+        this.whitePieces.push(new Bishop(5, 7, true, this.boardArray))
+        this.whitePieces.push(new Knight(1, 7, true, this.boardArray))
+        this.whitePieces.push(new Rook(0, 7, true, this.boardArray))
+        this.whitePieces.push(new Knight(6, 7, true, this.boardArray))
+        this.whitePieces.push(new Rook(7, 7, true, this.boardArray))
     
-        this.whitePieces.push(new Pawn(4, 6, true));
-        this.whitePieces.push(new Pawn(3, 6, true));
-        this.whitePieces.push(new Pawn(2, 6, true));
-        this.whitePieces.push(new Pawn(5, 6, true));
-        this.whitePieces.push(new Pawn(1, 6, true));
-        this.whitePieces.push(new Pawn(0, 6, true));
-        this.whitePieces.push(new Pawn(6, 6, true));
-        this.whitePieces.push(new Pawn(7, 6, true));
+        this.whitePieces.push(new Pawn(4, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(3, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(2, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(5, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(1, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(0, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(6, 6, true, this.boardArray))
+        this.whitePieces.push(new Pawn(7, 6, true, this.boardArray))
     
         //black pieces
-        this.blackPieces.push(new King(4, 0, false));
-        this.blackPieces.push(new Queen(3, 0, false));
-        this.blackPieces.push(new Bishop(2, 0, false));
-        this.blackPieces.push(new Bishop(5, 0, false));
-        this.blackPieces.push(new Knight(1, 0, false));
-        this.blackPieces.push(new Rook(0, 0, false));
-        this.blackPieces.push(new Knight(6, 0, false));
-        this.blackPieces.push(new Rook(7, 0, false));
+        this.blackPieces.push(new King(4, 0, false, this.boardArray))
+        this.blackPieces.push(new Queen(3, 0, false, this.boardArray))
+        this.blackPieces.push(new Bishop(2, 0, false, this.boardArray))
+        this.blackPieces.push(new Bishop(5, 0, false, this.boardArray))
+        this.blackPieces.push(new Knight(1, 0, false, this.boardArray))
+        this.blackPieces.push(new Rook(0, 0, false, this.boardArray))
+        this.blackPieces.push(new Knight(6, 0, false, this.boardArray))
+        this.blackPieces.push(new Rook(7, 0, false, this.boardArray))
     
-        this.blackPieces.push(new Pawn(4, 1, false));
-        this.blackPieces.push(new Pawn(3, 1, false));
-        this.blackPieces.push(new Pawn(2, 1, false));
-        this.blackPieces.push(new Pawn(5, 1, false));
-        this.blackPieces.push(new Pawn(1, 1, false));
-        this.blackPieces.push(new Pawn(0, 1, false));
-        this.blackPieces.push(new Pawn(6, 1, false));
-        this.blackPieces.push(new Pawn(7, 1, false));
+        this.blackPieces.push(new Pawn(4, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(3, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(2, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(5, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(1, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(0, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(6, 1, false, this.boardArray))
+        this.blackPieces.push(new Pawn(7, 1, false, this.boardArray))
 
         this.whitePieces.forEach(p => {
           this.boardArray[p.matrixPosition.x][p.matrixPosition.y] = p
@@ -74,17 +74,7 @@ class Board {
         if(piece == null){
             return
         }
-
-        while(mouseIsPressed){
-
-        }
-        var positionX = (mouseX - mouseX % 100)/100
-        var positionY = (mouseY - mouseY % 100)/100
-        this.boardArray[piece.matrixPosition.x][piece.matrixPosition.y] = null
-        this.boardArray[positionX][positionY] = piece
-        piece.matrixPosition.x = positionX
-        piece.matrixPosition.y = positionY
-        
-    }
+        piece.taken = true
+    } 
 
 }
