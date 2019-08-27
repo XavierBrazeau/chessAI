@@ -89,6 +89,7 @@ class Pawn extends Piece{
     }
 
     move(){
+        
         var vector = super.mouseTile()
         if(this.white && vector.x == this.matrixPosition.x && vector.y == this.matrixPosition.y -1){
             super.move()
