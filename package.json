@@ -1,0 +1,27 @@
+{
+  "name": "chessai",
+  "version": "1.0.0",
+  "description": "Developpment of a chess engine and AI",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XavierBrazeau/chessAI.git"
+  },
+  "keywords": [
+    "Chess",
+    "AI"
+  ],
+  "author": "Xavier Brazeau",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XavierBrazeau/chessAI/issues"
+  },
+  "homepage": "https://github.com/XavierBrazeau/chessAI#readme"
+}
