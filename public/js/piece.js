@@ -6,25 +6,31 @@ class Piece {
 
         this.boardArray = pBoardArray
         this.taken = false
+        this.captured = false
         this.white = isWhite
+        
     }
 
     show(){
-        textSize(30)
-        //strokeWeight(10)
-        if(this.white){
-            fill(255)
-            stroke(0)
-        }else{
-            fill(30)
-            stroke(255)
+
+        if(!captured){
+            textSize(30)
+            //strokeWeight(10)
+            if(this.white){
+                fill(255)
+                stroke(0)
+            }else{
+                fill(30)
+                stroke(255)
+            }
+            textAlign(CENTER,CENTER)
+            if(this.taken){
+                text(this.letter, mouseX, mouseY)
+            }else{
+                text(this.letter, this.piecePosition.x, this.piecePosition.y)
+            }
         }
-        textAlign(CENTER,CENTER)
-        if(this.taken){
-            text(this.letter, mouseX, mouseY)
-        }else{
-            text(this.letter, this.piecePosition.x, this.piecePosition.y)
-        }
+
     }
 
     mouseTile(){
@@ -37,7 +43,6 @@ class Piece {
         this.piecePosition = createVector(tileSize * vector.x + tileSize / 2, tileSize * vector.y  + tileSize / 2)
         this.boardArray[vector.x][vector.y] = this
     }
-
 }
 
 class King extends Piece{
@@ -91,11 +96,32 @@ class Pawn extends Piece{
     move(){
         
         var vector = super.mouseTile()
-        if(this.white && vector.x == this.matrixPosition.x && vector.y == this.matrixPosition.y -1){
-            super.move()
-        }else if(!this.white && vector.x == this.matrixPosition.x && vector.y == this.matrixPosition.y + 1){
-            super.move()
+        //If this piece is a white piece (since white and black pawns don't move in same directions)
+        if(this.white){
+            //If there is a piece on the tile we want to move on (to verify if we capture or simply move)
+            if(this.boardArray[vector.x][vector.y] != null){
+                //Verify if the capture position is really one space in diagonal to the pawn in white panws' direction
+                if( (vector.x == this.matrixPosition.x + 1 || vector.x == this.matrixPosition.x - 1 ) && vector.y == this.matrixPosition.y - 1){
+                    this.boardArray[vector.x][vector.y].captured = true
+                    super.move()
+                }
+            }else if(vector.x == this.matrixPosition.x && vector.y == this.matrixPosition.y - 1){
+                super.move()
+            }
+        } else if(!this.white){
+            //If there is a piece on the tile we want to move on (to verify if we capture or simply move)
+            if(this.boardArray[vector.x][vector.y] != null){
+                //Verify if the capture position is really one space in diagonal to the pawn in black pawns' direction
+                if( (vector.x == this.matrixPosition.x + 1 || vector.x == this.matrixPosition.x - 1 ) && vector.y == this.matrixPosition.y + 1){
+                    this.boardArray[vector.x][vector.y].captured = true
+                    super.move()
+                }
+            }else if(!this.white && vector.x == this.matrixPosition.x && vector.y == this.matrixPosition.y + 1){
+                super.move()
+            }
         }
+        
+
 
         
     }
