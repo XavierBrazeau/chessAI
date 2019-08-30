@@ -104,6 +104,8 @@ class Pawn extends Piece{
                 if( (vector.x == this.matrixPosition.x + 1 || vector.x == this.matrixPosition.x - 1 ) && vector.y == this.matrixPosition.y - 1){
                     this.boardArray[vector.x][vector.y].captured = true
                     super.move()
+                } else{
+                    return
                 }
             }else if(vector.x == this.matrixPosition.x && vector.y == this.matrixPosition.y - 1){
                 super.move()
