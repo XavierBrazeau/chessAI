@@ -10,6 +10,7 @@
 #define Board_hpp
 
 #include "definitions.h"
+#include "Move.hpp"
 #include <stdio.h>
 
 class Board {
@@ -53,7 +54,8 @@ class Board {
     //Number of bishops and knights stored by color
     int numberOfMinorPieces[3];
     
-    
+    //Array of all previous moves
+    Move moveHistory[MAXGAMEMOVES];
     
     
     

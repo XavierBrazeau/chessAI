@@ -22,8 +22,6 @@ class Move {
     int enPassantSquare;
     int fiftyMoveStatus;
     U64 positionKey;
-    
-    
 public:
     Move();
 };
