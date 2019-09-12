@@ -54,14 +54,25 @@ class Board {
     //Number of bishops and knights stored by color
     int numberOfMinorPieces[3];
     
+    //Ex: pieceList[wN][X] returns the position of all the white knights hitting 0/empty means you have hit an empty square and there are no more white klnights on the board
+    int pieceList[13][10];
+    
     //Array of all previous moves
     Move moveHistory[MAXGAMEMOVES];
     
-    
-    
-    
 public:
+    Board();
     
+    int toOneTwenty(int sixtyFour);
+    int toSixtyFour(int oneTwenty);
+    int fileRankToSixtyfour(int file, int rank);
+    int fileRankToOneTwenty(int file, int rank);
+    
+    
+    void setupOneTwentyToSixtyFour();
+    void setupSixtyFourToOneTwenty();
+    
+    void printBitBoard(U64 bitBoard);
 };
 
 #endif /* Board_hpp */

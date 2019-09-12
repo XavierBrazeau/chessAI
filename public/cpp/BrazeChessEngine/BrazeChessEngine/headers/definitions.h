@@ -22,18 +22,18 @@ enum{WHITE, BLACK, BOTH};
 
 enum{whiteKingCastling = 1, whiteQueenCastling = 2, blackKingCastling = 3, blackQueenCastling = 4};
 
-
-
+extern int sixtyFourToOneTwenty[64];
+extern int oneTwentyToSixtyFour[120];
 
 enum{
-    A1 = 21, B1, C1, D1, E1, F1, H1,
-    A2 = 31, B2, C2, D2, E2, F2, H2,
-    A3 = 41, B3, C3, D3, E3, F3, H3,
-    A4 = 51, B4, C4, D4, E4, F4, H4,
-    A5 = 61, B5, C5, D5, E5, F5, H5,
-    A6 = 71, B7, C7, D7, E7, F7, H7,
-    A7 = 81, B8, C8, D8, E8, F8, H8,
-    A8 = 91, B9, C9, D9, E9, F9, H9, NO_SQUARE
+    A1 = 21, B1, C1, D1, E1, F1, G1, H1,
+    A2 = 31, B2, C2, D2, E2, F2, G2, H2,
+    A3 = 41, B3, C3, D3, E3, F3, G3, H3,
+    A4 = 51, B4, C4, D4, E4, F4, G4, H4,
+    A5 = 61, B5, C5, D5, E5, F5, G5, H5,
+    A6 = 71, B7, C7, D7, E7, F7, G7, H6,
+    A7 = 81, B8, C8, D8, E8, F8, G8, H7,
+    A8 = 91, B9, C9, D9, E9, F9, G9, H9, NO_SQUARE
 };
 
 
